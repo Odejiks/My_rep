@@ -1,6 +1,6 @@
 # # Калькулятор
-# number_1 = input("Введите первое число: ")
-# number_2 = input("введите второе число: ")
+# number_1 = input("Enter the first number: ")
+# number_2 = input("Enter the second number: ")
 # opera = input("введите опаратора: ")
 # if opera != "+" and opera != "-" and opera != "*" and opera != "/" :
 #     print("неправильный оператор")
