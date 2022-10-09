@@ -89,5 +89,5 @@ my_auto_2.load()
 my_auto_3 = Car("Opel", 2021, "astra", 240)
 my_auto_3.move()
 
-my_auto_3 = Car("Kia", 2014, "ceed", 220)
-my_auto_3.move()
+my_auto_4 = Car("Kia", 2014, "ceed", 220)
+my_auto_4.move()
