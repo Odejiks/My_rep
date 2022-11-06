@@ -1,0 +1,47 @@
+1.Создание таблицы
+CREATE TABLE IF NOT EXISTS `department`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(15) NOT NULL,
+    `count` INT DEFAULT 0,
+    `head_id` INT
+);
+
+2.Создание таблицы
+CREATE TABLE IF NOT EXISTS `state`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(30) NOT NULL,
+    `lastname` VARCHAR(15) NOT NULL,
+    `subdivision` INT,
+    `zp` INT,
+    `position` VARCHAR(40)
+);
+
+
+Привязка по внешнему ключу
+ALTER TABLE `state` ADD CONSTRAINT `fk_1` FOREIGN KEY (`subdivision`)
+REFERENCES `department` (`id`) ON DELETE CASCADE;
+
+
+Заполнение таблиц
+INSERT INTO `department`
+(name, count, head_id) VALUES
+('IT', 2, 1),
+('отдел кадров', 6, 3),
+('отдел продаж', 2, 2),
+('финансисты', 3, 1);
+
+
+INSERT INTO `state`
+(name, lastname, subdivision, zp, position) VALUES
+('Иван', 'Иванов', 2, 40000, 'HTML'),
+('Петр', 'Петров', 4, 42000, 'CSS'),
+('Дима', 'Баранов', 3, 23000, 'продукты'),
+('Миша', 'Семенов', 1, 34000, 'IT');
+
+
+Соединение join-ом
+SELECT `state`.`name`, `state`.`lastname`, `state`.`zp`, 
+`department`.`name`
+FROM `state`
+LEFT JOIN `department`
+ON `department`.`id` = `state`.`subdivision`
